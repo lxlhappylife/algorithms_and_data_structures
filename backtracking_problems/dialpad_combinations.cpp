@@ -17,13 +17,17 @@
  * This way we do it for all the letters at all the positions. 
  * The idea is to generate all possible subsets of the string, keeping in mind the order.
  */
+/*
+2019.08.15
+*/
 
-#include <iostream>
-#include <string>
 #include <unordered_map>
 #include <vector>
+#include <iostream>
 
-std::unordered_map<char, std::string> dict {
+using namespace std;
+
+std::unordered_map<char, std::string> dict {      //std::unorded_map<char, std::string> map_for_diag {}
     {'1' , "" },
     {'2' , "abc"},
     {'3' , "def"},
@@ -37,18 +41,21 @@ std::unordered_map<char, std::string> dict {
     {'*' , "*"},
     {'#' , "#"}
 };
-
+//                         34 ,          '' ,     ,0
 void helper(const std::string& digits, std::string rs,
     std::vector<std::string>& result, int index)
 {
     if (index == digits.length()) {
+        cout << "index is " << index << "digits.length is " << digits.length() << endl;
+        cout << "rs is  " << rs << endl;
         result.push_back(rs);
         return;
     }
     
     char c = digits[index];
-    std::string ps = dict[c];
-    for (int i = 0; i < ps.length(); ++i) {
+    //cout << "c is " << c << endl;
+    std::string ps = dict[c];     //def
+    for (int i = 0; i < ps.length(); ++i) {    //0,1,2
         helper(digits, rs + ps[i], result, index + 1);
     }
 }
@@ -73,7 +80,7 @@ void print_vec(const std::vector<std::string>& vec)
 }
 int main()
 {
-    std::string digits{"34"};
+    std::string digits{"58"};     //初始化
     std::cout << "All possible combinations of digits " << digits << " are: \n";
     print_vec(letter_combinations(digits));
     return 0;

@@ -120,7 +120,7 @@ void print_board(const std::vector<std::vector<char>>& board)
 
 int main()
 {
-    std::vector<std::vector<char>> board = {
+    std::vector<std::vector<char>> board = {    //两层vector
         {'o','a','a','n'},
         {'e','t','a','e'},
         {'i','h','k','r'},

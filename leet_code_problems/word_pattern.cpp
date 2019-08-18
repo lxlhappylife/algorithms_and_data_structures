@@ -23,6 +23,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <unordered_set>
+#include <iterator>   // include std::istream_iterator.
 
 bool match_pattern(const std::string& str, const std::string& pattern)
 {

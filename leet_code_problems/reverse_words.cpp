@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include <string>
-
+#include <algorithm>    //include std::reverse.
 
 std::string reverse_words(std::string& sentence)
 {
